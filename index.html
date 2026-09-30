@@ -31,8 +31,6 @@
   .card .cp:hover { background:#f7efe3; }
   .card .row .tags { color:#b5651d; }
   .card .row.copyrow p { font-size:15px; color:#333; }
-  .thumb { width:240px; height:240px; object-fit:cover; border-radius:10px; border:1px solid #e5d9c5; cursor:zoom-in; display:block; margin:0 auto 10px; background:#f0e6d8; }
-  .thumbWrap { text-align:center; }
   .card details { margin-top:10px; border-top:1px dashed #e5d9c5; padding-top:10px; }
   .card details summary { cursor:pointer; font-size:13px; color:#8b5e3c; user-select:none; }
   .card details summary:hover { color:#5b3a1e; }
@@ -1062,7 +1060,6 @@ function render(){
   const el = document.getElementById("list");
   el.innerHTML = list.map(d =>
     '<div class="card"><div class="head"><span class="no">'+String(d.id).padStart(3,"0")+'</span><span class="cat">'+esc(d.cat)+'</span><h2>'+esc(d.theme)+'</h2><button class="copy" data-i="'+d.id+'">复制全部</button></div>'+
-    '<div class="thumbWrap"><img class="thumb" loading="lazy" alt="'+esc(d.theme)+'" title="点击查看大图" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt='+encodeURIComponent(d.img)+'&image_size=square" onclick="window.open(this.src,\'_blank\')"></div>'+
     '<div class="row copyrow"><label>文案</label><p>'+esc(d.copy)+'</p><button class="cp" data-i="'+d.id+'" data-f="copy">复制</button></div>'+
     '<div class="row"><label>话题</label><p class="tags">'+esc(d.tags)+'</p><button class="cp" data-i="'+d.id+'" data-f="tags">复制</button></div>'+
     '<details><summary>画面 / 视频提示词</summary>'+
